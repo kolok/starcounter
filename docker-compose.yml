@@ -1,0 +1,31 @@
+# Star counter
+# Owner: Nicolas Oudard
+# Usage: docker-compose up -d
+
+# docker-compose needed
+version: '3'
+
+services:
+# Here is the postgreSQL engine exposed on 5431
+  db:
+    image: mysql:5.5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/lib/star-counter-db:/var/lib/mysql
+
+# Here is the node server
+  starcounter:
+    build: ./starcounter-node
+    restart: always
+    ports:
+      - 80:3000
+    links:
+      - db
+    depends_on:
+      - db
+    volumes:
+        - ./starcounter-node:/app
