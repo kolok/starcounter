@@ -4,8 +4,12 @@ block content
   h1= title
   ul
     each user in users
-      li #{user.user} - #{user.counter}
-        form(method='POST' action='/users/plus/' + user.id)
-          button.btn.btn-primary(type='submit') Plus
-        form(method='POST' action='/users/minus/' + user.id)
-          button.btn.btn-primary(type='submit') Moins
+      li
+      div(class='starline')
+        div(class='starlineuser') #{user.user} - #{user.counter}
+        div(class='starlineplus')
+          form(method='POST' action='/users/plus/' + user.id)
+            button.btn.btn-primary(type='submit' class='iconbutton plusbutton')
+        div(class='starlineminus')
+          form(method='POST' action='/users/minus/' + user.id)
+            button.btn.btn-primary(type='submit' class='iconbutton minusbutton')

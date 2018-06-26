@@ -6,3 +6,37 @@ body {
 a {
   color: #00B7FF;
 }
+
+li {
+  list-style-type: none;
+}
+
+.starline {
+  display: flex;
+}
+
+.starlineuser {
+  flex-basis: 200px
+}
+.starline div {
+  margin: 10px;
+  align-self: center;
+}
+
+.iconbutton {
+  background-image: url('/images/plus.png');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: white;
+}
+
+.plusbutton {
+  background-image: url('/images/plus.png');
+}
+
+.minusbutton {
+  background-image: url('/images/minus.png');
+}
